@@ -9,5 +9,7 @@ import com.project.news.entity.User;
 @RepositoryRestResource(path="user")
 @CrossOrigin("http://localhost:4200/")
 public interface UserRepository extends JpaRepository<User, Integer> {
+	
+	public User findByUserNameAndPassword(String username, String password);
 
 }

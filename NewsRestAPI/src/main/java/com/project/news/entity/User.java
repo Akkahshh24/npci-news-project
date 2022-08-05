@@ -1,5 +1,7 @@
 package com.project.news.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,26 +15,39 @@ public class User {
 	
 	@Id		// primary key
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	// auto_increment
-	@Column(name="user_id")
+	@Column(name="userid")
 	private Integer userId;
 	
-	@Column(name="user_name")
+	@Column(name="fullname")
+	private String fullName;
+	
+	@Column(name="username")
 	private String userName;
+	
+	@Column(name="emailid")
+	private String emailID;
 	
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="is_admin")
+	@Column(name="dob")
+	private Date dob;
+	
+	@Column(name="isadmin")
 	private Boolean isAdmin;
 	
 	public User() {
 		// default constructor
 	}
 
-	public User(Integer userId, String userName, String password, Boolean isAdmin) {
+	public User(Integer userId, String fullName, String userName, String emailID, String password, Date dob,
+			Boolean isAdmin) {
 		this.userId = userId;
+		this.fullName = fullName;
 		this.userName = userName;
+		this.emailID = emailID;
 		this.password = password;
+		this.dob = dob;
 		this.isAdmin = isAdmin;
 	}
 
@@ -44,12 +59,28 @@ public class User {
 		this.userId = userId;
 	}
 
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getEmailID() {
+		return emailID;
+	}
+
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
 	}
 
 	public String getPassword() {
@@ -60,11 +91,19 @@ public class User {
 		this.password = password;
 	}
 
-	public Boolean isAdmin() {
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public Boolean getIsAdmin() {
 		return isAdmin;
 	}
 
-	public void setAdmin(Boolean isAdmin) {
+	public void setIsAdmin(Boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 	
